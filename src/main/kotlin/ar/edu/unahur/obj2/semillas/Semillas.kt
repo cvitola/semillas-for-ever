@@ -1,6 +1,6 @@
 package ar.edu.unahur.obj2.semillas
 
-class Menta(var altura: Double, val anioSemilla: Int) {
+class Mentita(var altura: Double, val anioSemilla: Int) {
     fun espacio(): Double {
         TODO("Te la debo, amigue...")
     }
