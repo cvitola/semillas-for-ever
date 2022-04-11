@@ -15,6 +15,9 @@ class SemillasTest : DescribeSpec ({
         val quinoa = Quinoa(1.0,2010,0.2)
         val quinoa2 = Quinoa(1.0,2006, 0.9)
 
+        val transgenica1 = Transgenica(1.2, 2019)
+        val peperina1 = Peperina(1.5, 2015)
+
         it("probamos los atributos altura  y anioSemilla") {
             menta.altura.shouldBe(1.0)
             menta.anioSemilla.shouldBe(2021)
@@ -28,6 +31,11 @@ class SemillasTest : DescribeSpec ({
             quinoa2.altura.shouldBe(1.0)
             quinoa2.anioSemilla.shouldBe(2006)
             quinoa2.espacio.shouldBe(0.9)
+            transgenica1.altura.shouldBe(1.2)
+            transgenica1.anioSemilla.shouldBe(2019)
+            peperina1.altura.shouldBe(1.5)
+            peperina1.anioSemilla.shouldBe(2015)
+
         }
 
         it("verificar si da semillas") {
@@ -36,6 +44,8 @@ class SemillasTest : DescribeSpec ({
             soja.daSemillas().shouldBeFalse()
             quinoa.daSemillas().shouldBeTrue()
             quinoa2.daSemillas().shouldBeTrue()
+            transgenica1.daSemillas().shouldBeFalse()
+            peperina1.daSemillas().shouldBeTrue()
         }
 
         it("es fuerte") {
@@ -44,6 +54,8 @@ class SemillasTest : DescribeSpec ({
             soja.esFuerte().shouldBeFalse()
             quinoa.esFuerte().shouldBeTrue()
             quinoa2.esFuerte().shouldBeFalse()
+            transgenica1.esFuerte().shouldBeFalse()
+            peperina1.esFuerte().shouldBeFalse()
         }
 
         it("espacio") {
@@ -52,6 +64,8 @@ class SemillasTest : DescribeSpec ({
             soja.espacio().shouldBe(0.3)
             quinoa.espacio().shouldBe(0.2)
             quinoa2.espacio().shouldBe(0.9)
+            transgenica1.espacio().shouldBe(0.6)
+            peperina1.espacio().shouldBe(6)
         }
 
         it("horas de sol toleradas"){
