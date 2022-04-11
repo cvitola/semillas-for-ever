@@ -1,64 +1,59 @@
 package ar.edu.unahur.obj2.semillas
 
-class Menta(var altura: Double, val anioSemilla: Int) {
-    fun espacio(): Double {
-        return altura+1.0
-    }
-
-    fun daSemillas(): Boolean {
-        return altura>0.4
-    }
-
-    fun esFuerte(): Boolean {
-        return this.toleranciaSol()>9.0
-    }
-    fun toleranciaSol(): Double {
-        return 7.0
-    }
-}
-
-class Soja(var altura: Double, val anioSemilla: Int) {
-    fun espacio(): Double {
-        return altura/2.0
-    }
-
-    fun daSemillas(): Boolean {
-        return ( (anioSemilla>=2007) && ((altura>=0.75) && (altura<=0.9)) )
-    }
-
-    fun esFuerte(): Boolean {
-        return this.toleranciaSol()>9.0
-    }
-
-    fun toleranciaSol(): Double {
-        if (altura<0.5){ return 6.0 }
-        else if ((altura>=0.5) && (altura<=1.0)) { return 8.0 }
-        else { return 12.0 }
-    }
-}
-class Quinoa(var altura: Double, val anioSemilla: Int, val espacio: Double) {
-    fun espacio(): Double {
-        return espacio
-    }
-
-    fun daSemillas(): Boolean {
-        return ((anioSemilla>=2001) && (anioSemilla<=2010))
-    }
-
-    fun esFuerte(): Boolean {
-        return this.toleranciaSol()>9.0
-    }
-    fun toleranciaSol(): Double {
-        if (this.espacio()<0.3) {return 10.0}
-        else {return 7.0}
-    }
-}
-
-/*
-class Planta(var altura: Double, val anioSemilla: Int) {
-    fun espacio() {
-        TODO("Pasaron cosas")
-    }
+open class Planta(var altura: Double, val anioSemilla: Int) {
+    //la sobreescribe cada clase derivada
+    open fun espacio(): Double = 0.0
+    open fun toleranciaSol(): Int = 0
+    open fun daSemillas(): Boolean = false
+    open fun esFuerte(): Boolean =  this.toleranciaSol() > 7.0
 
 }
-*/
+
+class Menta(altura: Double, anioSemilla: Int): Planta(altura, anioSemilla) {
+
+    override fun espacio() = altura+1.0
+
+    override fun daSemillas() =  altura>0.4
+
+    override fun esFuerte() = this.toleranciaSol()>9.0
+
+    override fun toleranciaSol() = 7
+}
+
+class Soja(altura: Double, anioSemilla: Int): Planta(altura,anioSemilla) {
+    override fun espacio() = altura/2.0
+
+    override fun daSemillas() = ( (anioSemilla>=2007) && ((altura>=0.75) && (altura<=0.9)) )
+
+    override fun esFuerte() = this.toleranciaSol()>9.0
+
+    override fun toleranciaSol() =
+        if (altura < 0.5){
+            6
+        }
+        else if (altura < 1.0){
+            8
+        }
+        else {
+            12
+        }
+    }
+
+class Quinoa(altura: Double, anioSemilla: Int, val espacio: Double) :Planta(altura, anioSemilla) {
+    override fun espacio() = espacio
+
+    override fun daSemillas() =  ((anioSemilla>=2001) && (anioSemilla<=2010))
+
+    override fun esFuerte() = this.toleranciaSol()>9.0
+
+    override fun toleranciaSol() =
+        if (this.espacio()<0.3) {
+            10
+        }else {
+            7
+        }
+    }
+
+
+
+
