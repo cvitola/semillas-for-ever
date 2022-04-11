@@ -2,30 +2,32 @@ package ar.edu.unahur.obj2.semillas
 
 class Menta(var altura: Double, val anioSemilla: Int) {
     fun espacio(): Double {
-        TODO("Te la debo, amigue...")
+        return altura+1.0
     }
 
     fun daSemillas(): Boolean {
-        TODO("Colgue, che...")
+        return altura>0.4
     }
 
     fun esFuerte(): Boolean {
-        TODO("Estas seguro que lo queres implementar así?")
+        return this.toleranciaSol()>9.0
     }
-
+    fun toleranciaSol(): Double {
+        return 7.0
+    }
 }
 
 class Soja(var altura: Double, val anioSemilla: Int) {
     fun espacio(): Double {
-        TODO("Lee un poco más el enunciado...")
+        return altura/2.0
     }
 
     fun daSemillas(): Boolean {
-        TODO("Dalee")
+        return ( (anioSemilla>=2007) && ((altura>=0.75) && (altura<=0.9)) )
     }
 
     fun esFuerte(): Boolean {
-        TODO("Así me implementas mejor")
+        return this.toleranciaSol()>9.0
     }
 
     fun toleranciaSol(): Double {
@@ -40,17 +42,23 @@ class Quinoa(var altura: Double, val anioSemilla: Int, val espacio: Double) {
     }
 
     fun daSemillas(): Boolean {
-        TODO("Dalee")
+        return ((anioSemilla>=2001) && (anioSemilla<=2010))
     }
 
     fun esFuerte(): Boolean {
-        TODO("Así me implementas mejor")
+        return this.toleranciaSol()>9.0
+    }
+    fun toleranciaSol(): Double {
+        if (this.espacio()<0.3) {return 10.0}
+        else {return 7.0}
     }
 }
 
+/*
 class Planta(var altura: Double, val anioSemilla: Int) {
     fun espacio() {
         TODO("Pasaron cosas")
     }
 
 }
+*/

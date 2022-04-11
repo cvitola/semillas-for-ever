@@ -18,6 +18,16 @@ class SemillasTest : DescribeSpec ({
         it("probamos los atributos altura  y anioSemilla") {
             menta.altura.shouldBe(1.0)
             menta.anioSemilla.shouldBe(2021)
+            menta2.altura.shouldBe(0.3)
+            menta2.anioSemilla.shouldBe(2021)
+            soja.altura.shouldBe(0.6)
+            soja.anioSemilla.shouldBe(2009)
+            quinoa.altura.shouldBe(1.0)
+            quinoa.anioSemilla.shouldBe(2010)
+            quinoa.espacio.shouldBe(0.2)
+            quinoa2.altura.shouldBe(1.0)
+            quinoa2.anioSemilla.shouldBe(2006)
+            quinoa2.espacio.shouldBe(0.9)
         }
 
         it("verificar si da semillas") {
@@ -30,7 +40,10 @@ class SemillasTest : DescribeSpec ({
 
         it("es fuerte") {
             menta.esFuerte().shouldBeFalse()
+            menta2.esFuerte().shouldBeFalse()
             soja.esFuerte().shouldBeFalse()
+            quinoa.esFuerte().shouldBeTrue()
+            quinoa2.esFuerte().shouldBeFalse()
         }
 
         it("espacio") {
