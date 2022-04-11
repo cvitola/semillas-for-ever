@@ -8,7 +8,7 @@ import io.kotest.matchers.shouldBe
 class SemillasTest : DescribeSpec ({
     // hay una clase Planta que tiene por atributos
     // anioSemilla, altura
-    describe("Creación de las plantas") {
+    describe("Creación de las plantas y parcelas") {
         val menta = Menta(1.0, 2021)
         val menta2 = Menta(0.3, 2021)
         val soja = Soja(0.6, 2009)
@@ -17,6 +17,9 @@ class SemillasTest : DescribeSpec ({
 
         val transgenica1 = Transgenica(1.2, 2019)
         val peperina1 = Peperina(1.5, 2015)
+
+        val parcela1 = Parcela(20.0, 1.0, 10)
+        val parcela2 = Parcela(4.1, 5.0, 6)
 
         it("probamos los atributos altura  y anioSemilla") {
             menta.altura.shouldBe(1.0)
@@ -37,6 +40,7 @@ class SemillasTest : DescribeSpec ({
             peperina1.anioSemilla.shouldBe(2015)
 
         }
+
 
         it("verificar si da semillas") {
             menta.daSemillas().shouldBeTrue()
@@ -80,6 +84,18 @@ class SemillasTest : DescribeSpec ({
             ).sum()
             Math.ceil(superficie).shouldBe(4)
         }
+
+        it("probamos superficie de parcelas") {
+            parcela1.superficie().shouldBe(20.0)
+            parcela2.superficie().shouldBe(20.5)
+        }
+
+        it("probamos la cantida de plantas maximas que pueden implementarse en cada parcela"){
+            parcela1.cantidadMaximaPlantas().shouldBe(4)
+           // parcela2.cantidadMaximaPlantas().shouldBe(12)
+        }
+
+
 
     }
 })
