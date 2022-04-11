@@ -9,7 +9,7 @@ open class Planta(var altura: Double, val anioSemilla: Int) {
 
 }
 
-class Menta(altura: Double, anioSemilla: Int): Planta(altura, anioSemilla) {
+open class Menta(altura: Double, anioSemilla: Int): Planta(altura, anioSemilla) {
 
     override fun espacio() = altura+1.0
 
@@ -20,12 +20,12 @@ class Menta(altura: Double, anioSemilla: Int): Planta(altura, anioSemilla) {
     override fun toleranciaSol() = 7
 }
 
-class Soja(altura: Double, anioSemilla: Int): Planta(altura,anioSemilla) {
+open class Soja(altura: Double, anioSemilla: Int): Planta(altura,anioSemilla) {
     override fun espacio() = altura/2.0
 
     override fun daSemillas() = ( (anioSemilla>=2007) && ((altura>=0.75) && (altura<=0.9)) )
 
-    override fun esFuerte() = this.toleranciaSol()>9.0
+    override fun esFuerte() = this.toleranciaSol()>9
 
     override fun toleranciaSol() =
         if (altura < 0.5){
@@ -54,6 +54,12 @@ class Quinoa(altura: Double, anioSemilla: Int, val espacio: Double) :Planta(altu
         }
     }
 
+class Transgenica(altura: Double, anioSemilla: Int): Soja(altura,anioSemilla) {
 
+}
+
+class Peperina(altura: Double, anioSemilla: Int): Menta(altura, anioSemilla) {
+    override fun espacio() = super.espacio() * 2.0
+}
 
 

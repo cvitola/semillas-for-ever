@@ -54,7 +54,7 @@ class SemillasTest : DescribeSpec ({
             soja.esFuerte().shouldBeFalse()
             quinoa.esFuerte().shouldBeTrue()
             quinoa2.esFuerte().shouldBeFalse()
-            transgenica1.esFuerte().shouldBeFalse()
+            transgenica1.esFuerte().shouldBeTrue()
             peperina1.esFuerte().shouldBeFalse()
         }
 
@@ -65,7 +65,7 @@ class SemillasTest : DescribeSpec ({
             quinoa.espacio().shouldBe(0.2)
             quinoa2.espacio().shouldBe(0.9)
             transgenica1.espacio().shouldBe(0.6)
-            peperina1.espacio().shouldBe(6)
+            peperina1.espacio().shouldBe(5.0)
         }
 
         it("horas de sol toleradas"){
