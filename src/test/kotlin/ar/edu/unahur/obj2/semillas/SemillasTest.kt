@@ -95,6 +95,14 @@ class SemillasTest : DescribeSpec ({
             parcela2.cantidadMaximaPlantas().shouldBe(11)
         }
 
+        it("probamos agregar plantas a la parcela y verifico cantidad"){
+            parcela1.plantarPlanta(menta)
+            parcela1.plantarPlanta(soja)
+            parcela2.plantarPlanta(menta2)
+            parcela2.plantarPlanta(transgenica1)
+            parcela1.cantidadPlantas().shouldBe(1)
+            parcela2.cantidadPlantas().shouldBe(2)
+        }
 
 
     }
