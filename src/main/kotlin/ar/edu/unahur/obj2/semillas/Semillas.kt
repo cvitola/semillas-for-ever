@@ -55,7 +55,7 @@ class Quinoa(altura: Double, anioSemilla: Int, val espacio: Double) :Planta(altu
     }
 
 class Transgenica(altura: Double, anioSemilla: Int): Soja(altura,anioSemilla) {
-
+    override fun daSemillas() = false
 }
 
 class Peperina(altura: Double, anioSemilla: Int): Menta(altura, anioSemilla) {

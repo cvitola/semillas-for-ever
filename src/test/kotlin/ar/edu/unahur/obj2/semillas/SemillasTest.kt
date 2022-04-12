@@ -19,7 +19,7 @@ class SemillasTest : DescribeSpec ({
         val peperina1 = Peperina(1.5, 2015)
 
         val parcela1 = Parcela(20.0, 1.0, 10)
-        val parcela2 = Parcela(4.1, 5.0, 6)
+        val parcela2 = Parcela(4.0, 5.0, 6)
 
         it("probamos los atributos altura  y anioSemilla") {
             menta.altura.shouldBe(1.0)
@@ -92,7 +92,7 @@ class SemillasTest : DescribeSpec ({
 
         it("probamos la cantida de plantas maximas que pueden implementarse en cada parcela"){
             parcela1.cantidadMaximaPlantas().shouldBe(4)
-           // parcela2.cantidadMaximaPlantas().shouldBe(12)
+            parcela2.cantidadMaximaPlantas().shouldBe(11)
         }
 
 
