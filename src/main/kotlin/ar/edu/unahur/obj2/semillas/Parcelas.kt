@@ -16,8 +16,6 @@ class Parcela(val ancho: Double, val largo: Double, val horasSol: Int) {
     fun plantarPlanta(unaPlanta: Planta)  {
         if(this.cantidadPlantas() < this.cantidadMaximaPlantas() && horasSol <= unaPlanta.toleranciaSol() + 2){
             plantas.add(unaPlanta)
-        }else{
-            println("Error no se puede agregar")
         }
     }
 

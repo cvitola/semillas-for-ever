@@ -19,10 +19,14 @@ class SemillasTest : DescribeSpec ({
         val peperina1 = Peperina(1.5, 2015)
 
         val parcela1 = Parcela(20.0, 1.0, 10)
+
         val parcela2 = Parcela(4.1, 5.0, 6)
         val parcela3 = Parcela(2.0,2.0,7)
         val parcela4 = Parcela(3.0, 5.0,8)
         val parcela5 = Parcela(5.0,1.0,6)
+
+        val parcela6 = Parcela(4.0, 5.0, 6)
+
 
         it("probamos los atributos altura  y anioSemilla") {
             menta.altura.shouldBe(1.0)
@@ -95,24 +99,34 @@ class SemillasTest : DescribeSpec ({
 
         it("probamos la cantida de plantas maximas que pueden implementarse en cada parcela"){
             parcela1.cantidadMaximaPlantas().shouldBe(4)
-           // parcela2.cantidadMaximaPlantas().shouldBe(12)
+            parcela2.cantidadMaximaPlantas().shouldBe(11)
+        }
+
+
+
+        it("probamos agregar plantas a la parcela y verifico cantidad"){
+            parcela1.plantarPlanta(menta)
+            parcela1.plantarPlanta(soja)
+            parcela2.plantarPlanta(menta2)
+            parcela2.plantarPlanta(transgenica1)
+            parcela1.cantidadPlantas().shouldBe(1)
+            parcela2.cantidadPlantas().shouldBe(2)
         }
 
         it("probamos si las parcelas son ideales"){
             menta.parcelaIdeal(parcela1).shouldBeTrue()
-            menta.parcelaIdeal(parcela2).shouldBeFalse()
+            menta.parcelaIdeal(parcela6).shouldBeTrue()
             peperina1.parcelaIdeal(parcela1).shouldBeTrue()
             peperina1.parcelaIdeal(parcela3).shouldBeFalse()
 
-            quinoa.parcelaIdeal(parcela1).shouldBe() //hay que ver el escenario
+            quinoa.parcelaIdeal(parcela1).shouldBeTrue() //hay que ver el escenario
             quinoa.parcelaIdeal(parcela3).shouldBeTrue()
 
             soja.parcelaIdeal(parcela1).shouldBeFalse()
             soja.parcelaIdeal(parcela4).shouldBeTrue()
 
-            transgenica1.parcelaIdeal(parcela5).shouldBeTrue()
+            transgenica1.parcelaIdeal(parcela5).shouldBeFalse()
             transgenica1.parcelaIdeal(parcela1).shouldBeFalse()
-
 
         }
 
