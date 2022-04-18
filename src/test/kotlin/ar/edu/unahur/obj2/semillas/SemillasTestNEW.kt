@@ -5,7 +5,7 @@ import io.kotest.matchers.booleans.shouldBeFalse
 import io.kotest.matchers.booleans.shouldBeTrue
 import io.kotest.matchers.shouldBe
 
-class SemillasTest : DescribeSpec ({
+class SemillasTestNEW : DescribeSpec ({
     // hay una clase Planta que tiene por atributos
     // anioSemilla, altura
     describe("Creación de las plantas y parcelas") {
