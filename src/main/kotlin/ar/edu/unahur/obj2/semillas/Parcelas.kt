@@ -21,6 +21,9 @@ class Parcela(val ancho: Double, val largo: Double, val horasSol: Int) {
 
     fun cantidadPlantas() = plantas.size
 
+
+    fun tieneComplicaciones(): Boolean = plantas.any({ p-> p.toleranciaSol() < horasSol })
+
     fun hayPlantasBajaAltura(): Boolean = plantas.all( { p -> p.altura < 1.5})
 
 

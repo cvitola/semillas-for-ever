@@ -119,7 +119,7 @@ class SemillasTest : DescribeSpec ({
             peperina1.parcelaIdeal(parcela1).shouldBeTrue()
             peperina1.parcelaIdeal(parcela3).shouldBeFalse()
 
-            quinoa.parcelaIdeal(parcela1).shouldBeTrue() //hay que ver el escenario
+            quinoa.parcelaIdeal(parcela1).shouldBeTrue()
             quinoa.parcelaIdeal(parcela3).shouldBeTrue()
 
             soja.parcelaIdeal(parcela1).shouldBeFalse()
